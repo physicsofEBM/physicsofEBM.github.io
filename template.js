@@ -9122,15 +9122,35 @@ distill-header .nav a {
 
 </style>
 
+<div class='footer-container'>
+
+  <a href="/" class="logo">
+    ${logo}
+    Distill
+  </a> is dedicated to clear explanations of machine learning
+
+  <div class="nav">
+    <a href="https://distill.pub/about/">About</a>
+    <a href="https://distill.pub/journal/">Submit</a>
+    <a href="https://distill.pub/prize/">Prize</a>
+    <a href="https://distill.pub/archive/">Archive</a>
+    <a href="https://distill.pub/rss.xml">RSS</a>
+    <a href="https://github.com/distillpub">GitHub</a>
+    <a href="https://twitter.com/distillpub">Twitter</a>
+    &nbsp;&nbsp;&nbsp;&nbsp; ISSN 2476-0757
+  </div>
+
+</div>
+
 `;
 
   // Copyright 2018 The Distill Template Authors
 
-  // const T$c = Template('distill-footer', footerTemplate);
-  //
-  // class DistillFooter extends T$c(HTMLElement) {
-  //
-  // }
+  const T$c = Template('distill-footer', footerTemplate);
+
+  class DistillFooter extends T$c(HTMLElement) {
+
+  }
 
   // Copyright 2018 The Distill Template Authors
 
