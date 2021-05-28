@@ -9197,7 +9197,7 @@ distill-header .nav a {
       Slider, Interstitial
     ];
 
-    const distillComponents = [DistillHeader, DistillAppendix, DistillFooter];
+    const distillComponents = [DistillAppendix];
 
     if (window.distill.runlevel < 2) {
       throw new Error("Insufficient Runlevel for adding custom elements!");
