@@ -1,0 +1,304 @@
+.vranger {
+  margin-top: 50px;
+   transform: translate(-50px , 20px) rotate(270deg);
+  -moz-transform: translate(-72px , 10px) rotate(270deg) scale(0.8, 1.00); /*do same for other browsers if required*/
+}
+
+.firefoxranger {
+  -moz-transform: scale(0.8, 1.00); /*do same for other browsers if required*/
+}
+
+/* General Styles */
+path.plotline {
+    fill: none;
+    stroke: #ffab00;
+    stroke-width: 2.0;
+}
+  
+.overlay {
+  fill: none;
+  pointer-events: all;
+}
+
+/* Style the dots by assigning a fill and stroke */
+.dot {
+ /*   fill: #ffab00;*/
+/*    stroke: #fff;*/
+}
+
+.dot_energy_img {
+    fill: #ffab00;
+    stroke: #fff;
+}
+  .focus circle {
+  fill: none;
+  stroke: steelblue;
+}
+
+text.general_text {
+  font: 13px  -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", Arial, sans-serif;
+
+  font-family:  -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", Arial, sans-serif;
+}
+
+/* Style for RBM Graph */
+
+svg.figures {
+    border: 1px solid rgba(0, 0, 0, 0.0);
+    background-color:rgba(0, 0, 0, 0.0);
+}
+
+line.RBM_line {
+    stroke:rgb(0,0,0,0.7);
+    stroke-width:2.0;
+}
+
+circle.hidden_circle {
+    fill-opacity: 1.0;
+    /*stroke: blue;*/
+    stroke-width: 2;
+    stroke-opacity: 1.0;
+}
+circle.visible_circle {
+    opacity: 1.0;
+    stroke: black;
+    stroke-width: 1.0;
+}
+
+line.spring_line {
+	stroke: red;
+	stroke-width: 3.0;
+}
+
+circle.unused_circle {
+    opacity: 0.5;
+    stroke-width: 1.0;
+    fill: rgb(0,0,0,0.1);
+    stroke: rgb(0,0,0,0.5);
+    stroke-dasharray: 5,5;
+}
+
+
+div.tooltip {
+    position: absolute;
+    z-index: 10;
+    visibility: hidden;
+    background-color: lightblue;
+    text-align: center;
+    padding: 4px;
+    border-radius: 4px;
+    font-weight: normal;
+    color: grey;
+}
+
+
+body {
+    margin: 10px
+    font: 12px sans-serif;
+}
+
+
+
+/* Plot Style */
+
+path.lines {
+  fill: none;
+  stroke: steelblue;
+  stroke-width: 2px;
+}
+
+text.axis-text {
+  font: 12px sans-serif;
+}
+
+text.plot-title {
+  font: 12px sans-serif;
+}
+
+g.plot-ticks {
+  font: 12px sans-serif;
+}
+
+g.mouse_area {
+  opacity: 0;
+}
+
+g.guides {
+  stroke-width: 1px;
+}
+g.guides line {
+  stroke: #BBF;
+  shape-rendering: crispEdges;
+}
+g.guides circle {
+  fill: #BBF;
+  stroke: #348;
+  opacity: 0.2;
+}
+
+
+
+/*.axis {
+  fill: none;
+  path, line {
+    shape-rendering: crispEdges;
+    stroke: #eee;
+    stroke-width: 1;
+  }
+
+
+.series path {
+  fill: none;
+  stroke: #348;
+  stroke-width: 3px;
+}*/
+
+* {
+box-sizing: border-box;
+}
+
+div.column {
+float: left;
+width: 233px; /*This is 33% of the width in normal scale */
+padding: 10px;
+/*border: 2px solid red;
+border-radius: 5px;
+border-spacing: 15px; */
+}
+div.single_slider{
+float: left;
+width: 40px;
+height: 200px;
+padding: 2px;
+border: 0.5px solid rgb(0,0,0,0.1);
+border-radius: 5px;
+border-spacing: 15px;
+}
+div.slider_img{
+  margin-left: 10px;
+  margin-top: 10px;
+}
+div.spring_fig{
+float: left;
+width: 200px; /*This is 33% of the width in normal scale */
+padding: 10px;
+/*border: 2px solid red;
+border-radius: 5px;
+border-spacing: 15px; */
+}
+div.spring_column {
+float: left;
+width: 330px;
+padding: 10px;
+border: 0.5px solid grey;
+border-radius: 5px;
+border-spacing: 15px; */
+}
+div.column_2level {
+float: left;
+width: 180px;
+padding: 10px;
+border: 1px solid grey;
+border-radius: 5px;
+}
+div.column_2level_no_border {
+float: left;
+width: 180px;
+padding: 10px;
+}
+div.column_2level_image {
+float: left;
+width: 450px;
+padding: 10px;
+/*border: 1px solid grey;
+border-radius: 5px;*/
+}
+div.column_histogram {
+float: left;
+width: 700px;
+padding: 10px;
+/*border: 1px solid grey;
+border-radius: 5px;*/
+}
+
+div.doublecolumn {
+  float: left;
+  width: 466px;
+  padding: 10px;
+ /* border: 2px solid red;
+  border-radius: 5px;
+  border-collapse: separate;
+  border-spacing: 15px;
+*/
+
+}
+
+div.triplecolumn {
+float: left;
+width: 700px;
+padding: 10px;
+/*border: 2px solid black;
+border-radius: 5px;
+ border-spacing: 15px; */
+}
+div.caption-triplecolumn {
+float: left;
+width: 700px;
+padding: 20px;
+border-radius: 14px;
+background-color: rgba(0,0,0,0.01);
+opacity: 1.0;
+/*   border-spacing: 15px; */
+}
+div.row {
+float: left;
+width: 702px;
+padding: 1px;
+/* border: 0.5px solid lightgrey;
+border-radius: 14px;
+  border-spacing: 15px; */
+}
+p.slider-label-text {
+  float: left;
+  width: 50%;
+  padding: 5px;
+  font: 14px sans-serif;
+}
+
+p.slider-label-number {
+  float: left;
+  width: 50%;
+  padding: 5px;
+  font: 14px sans-serif;
+}
+
+.title-text {
+  float: right;
+  width: 50%;
+  padding: 5px;
+  font: 16px sans-serif;
+}
+
+p.figure-text {
+  color: rgba(0,0,0,0.6);
+  font-size: 13px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", Arial, sans-serif;
+}
+
+.forward {
+  fill: blue;
+  }
+
+.top {
+  fill : #88f;
+}
+
+.side {
+  fill: #00a;
+}
+
+.annotation {
+    fill: rgba(0,0,0,0.6);
+    font-size: 13px;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", Arial, sans-serif;
+}
