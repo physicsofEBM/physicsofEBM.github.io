@@ -8989,11 +8989,11 @@ distill-header .nav a {
 
   // Copyright 2018 The Distill Template Authors
 
-  // const T$b = Template('distill-header', headerTemplate, false);
+  const T$b = Template('distill-header', headerTemplate, false);
 
-  // class DistillHeader extends T$b(HTMLElement) {
+  class DistillHeader extends T$b(HTMLElement) {
 
-  // }
+  }
 
   // Copyright 2018 The Distill Template Authors
 
@@ -9050,11 +9050,11 @@ distill-header .nav a {
 
     if (typeof frontMatter.publishedDate !== 'undefined') {
       html += `
-    // <h3 id="citation">Citation</h3>
-    // <p>For attribution in academic contexts, please cite this work as</p>
-    // <pre class="citation short">${frontMatter.concatenatedAuthors}, "${frontMatter.title}", Distill, ${frontMatter.publishedYear}.</pre>
-    // <p>BibTeX citation</p>
-    // <pre class="citation long">${serializeFrontmatterToBibtex(frontMatter)}</pre>
+    <h3 id="citation">Citation</h3>
+    <p>For attribution in academic contexts, please cite this work as</p>
+    <pre class="citation short">${frontMatter.concatenatedAuthors}, "${frontMatter.title}", Distill, ${frontMatter.publishedYear}.</pre>
+    <p>BibTeX citation</p>
+    <pre class="citation long">${serializeFrontmatterToBibtex(frontMatter)}</pre>
     `;
     }
 
@@ -9122,19 +9122,15 @@ distill-header .nav a {
 
 </style>
 
-<div class='footer-container'>
-
-</div>
-
 `;
 
   // Copyright 2018 The Distill Template Authors
 
-  const T$c = Template('distill-footer', footerTemplate);
-
-  class DistillFooter extends T$c(HTMLElement) {
-
-  }
+  // const T$c = Template('distill-footer', footerTemplate);
+  //
+  // class DistillFooter extends T$c(HTMLElement) {
+  //
+  // }
 
   // Copyright 2018 The Distill Template Authors
 
