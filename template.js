@@ -9135,10 +9135,10 @@ distill-header .nav a {
 
 <div class='footer-container'>
 
-  <a href="/" class="logo">
-    ${logo}
-    Distill
-  </a> is dedicated to clear explanations of machine learning
+  // <a href="/" class="logo">
+  //   ${logo}
+  //   Distill
+  // </a> is dedicated to clear explanations of machine learning
 
   <div class="nav">
     <a href="https://distill.pub/about/">About</a>
