@@ -9125,16 +9125,16 @@ distill-header .nav a {
 <div class='footer-container'>
 
 
-  <div class="nav">
-    <a href="https://distill.pub/about/">About</a>
-    <a href="https://distill.pub/journal/">Submit</a>
-    <a href="https://distill.pub/prize/">Prize</a>
-    <a href="https://distill.pub/archive/">Archive</a>
-    <a href="https://distill.pub/rss.xml">RSS</a>
-    <a href="https://github.com/distillpub">GitHub</a>
-    <a href="https://twitter.com/distillpub">Twitter</a>
-    &nbsp;&nbsp;&nbsp;&nbsp; ISSN 2476-0757
-  </div>
+  // <div class="nav">
+  //   <a href="https://distill.pub/about/">About</a>
+  //   <a href="https://distill.pub/journal/">Submit</a>
+  //   <a href="https://distill.pub/prize/">Prize</a>
+  //   <a href="https://distill.pub/archive/">Archive</a>
+  //   <a href="https://distill.pub/rss.xml">RSS</a>
+  //   <a href="https://github.com/distillpub">GitHub</a>
+  //   <a href="https://twitter.com/distillpub">Twitter</a>
+  //   &nbsp;&nbsp;&nbsp;&nbsp; ISSN 2476-0757
+  // </div>
 
 </div>
 
