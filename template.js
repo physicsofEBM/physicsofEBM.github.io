@@ -8984,18 +8984,18 @@ distill-header .nav a {
   margin-left: 24px;
   text-transform: uppercase;
 }
-</style>
-<div class="content">
-  <a href="/" class="logo">
-    ${logo}
-    Distill
-  </a>
-  <nav class="nav">
-    <a href="/about/">About</a>
-    <a href="/prize/">Prize</a>
-    <a href="/journal/">Submit</a>
-  </nav>
-</div>
+// </style>
+// <div class="content">
+//   <a href="/" class="logo">
+//     ${logo}
+//     Distill
+//   </a>
+//   <nav class="nav">
+//     <a href="/about/">About</a>
+//     <a href="/prize/">Prize</a>
+//     <a href="/journal/">Submit</a>
+//   </nav>
+// </div>
 `;
 
   // Copyright 2018 The Distill Template Authors
