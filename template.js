@@ -8984,19 +8984,8 @@ distill-header .nav a {
   margin-left: 24px;
   text-transform: uppercase;
 }
-// </style>
-// <div class="content">
-//   <a href="/" class="logo">
-//     ${logo}
-//     Distill
-//   </a>
-//   <nav class="nav">
-//     <a href="/about/">About</a>
-//     <a href="/prize/">Prize</a>
-//     <a href="/journal/">Submit</a>
-//   </nav>
-// </div>
-`;
+</style>
+;
 
   // Copyright 2018 The Distill Template Authors
 
@@ -9135,10 +9124,6 @@ distill-header .nav a {
 
 <div class='footer-container'>
 
-  // <a href="/" class="logo">
-  //   ${logo}
-  //   Distill
-  // </a> is dedicated to clear explanations of machine learning
 
   <div class="nav">
     <a href="https://distill.pub/about/">About</a>
