@@ -8989,11 +8989,11 @@ distill-header .nav a {
 
   // Copyright 2018 The Distill Template Authors
 
-  const T$b = Template('distill-header', headerTemplate, false);
+  // const T$b = Template('distill-header', headerTemplate, false);
 
-  class DistillHeader extends T$b(HTMLElement) {
+  // class DistillHeader extends T$b(HTMLElement) {
 
-  }
+  // }
 
   // Copyright 2018 The Distill Template Authors
 
