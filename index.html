@@ -236,7 +236,7 @@ E(v, h)= -\sum_i b_iv_i-\sum_j c_jh_j - \sum_{ij}w_{ij}v_ih_j.
 </d-math>
 Compared to the fully-connected Boltzmann machine, the RBM is less expressive because it has fewer parameters. Nevertheless, the advantages gained in simulating and training these models surpass the loss in expressivity, especially since less complex models tend to generalize better <d-cite key="neyshabur2017exploring"></d-cite>. The three fundamental energy-based models we study in this article, Hopfield networks, Boltzmann machines, and RBMs, are illustrated in the figure below where we introduce the different architectures and illustrate how hidden nodes can make the model more complex.</p>
 <p>
-When the energy function doesn't include bias terms, Hopfield networks and Boltzmann machines have a so-called flip symmetry: ff we flip the values of all the nodes, the states before and after the flip have the same energy. Therefore patterns that differ by a flip on all nods cannot be differentiated. Adding hidden nodes can break this symmetry by assigning non-symmetric hidden-node states to each visible pattern.
+When the energy function doesn't include bias terms, Hopfield networks and Boltzmann machines have a so-called flip symmetry: if we flip the values of all the nodes, the states before and after the flip have the same energy. Therefore patterns that differ by a flip on all nods cannot be differentiated. Adding hidden nodes can break this symmetry by assigning non-symmetric hidden-node states to each visible pattern.
 The figure below illustrates this behavior.
 </p>
 
