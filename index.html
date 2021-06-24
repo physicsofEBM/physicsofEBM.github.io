@@ -233,7 +233,7 @@ What tasks can be performed with this model? Consider the zero-temperature case.
 </p>
 
 <p>
-  The energy function of Hopfield networks considers only pairwise interactions. Extending the scope to more complicated models is possible, but comes at a significant price: they will typically be more difficult to train, analyze, and simulate. Instead, new particles can be added to the network which are not used to represent data, but whose role is to increase the overall complexity of the model. They are referred to as <em>hidden</em> nodes (as in nodes in a network) and act as intermediaries between the remaining <em>visible</em> nodes, which encode data. Each collection of hidden or visible nodes is known as a <em>layer</em>.
+  The energy function of Hopfield networks considers only pairwise interactions. Extending the scope to more complicated models is possible, but comes at a significant price: they will typically be much more difficult to train and much harder to perform inference on them. Instead, new particles can be added to the network which are not used to represent data, but whose role is to increase the overall complexity of the model. They are referred to as <em>hidden</em> nodes (as in nodes in a network) and act as intermediaries between the remaining <em>visible</em> nodes, which encode data. Each collection of hidden or visible nodes is known as a <em>layer</em>.
   </p>
   <p>
   Physically, the hidden nodes enable effective higher-order interactions between visible nodes, leading to a new effective energy function for the visible nodes <d-cite key="biamonte2008nonperturbative,babbush2013resource"></d-cite>. The resulting networks are called <em>Boltzmann machines</em>, in allusion to the Boltzmann distribution governing their behaviour. They are generalizations of Hopfield networks in the sense that these are contained as a special case: a Boltzman machine simplifies to a Hopfield network when the interactions <d-math>w_{ij}</d-math> between hidden and visible nodes are set to zero. Importantly, Boltzmann machines are not only more powerful than Hopfield networks, but in a sense as powerful as can be: they are universal approximators, in principle able to replicate any discrete probability distribution with arbitrary precision
@@ -290,7 +290,9 @@ The figure below illustrates this behavior.
   <h2 id="sampling">Sampling</h2>
 <p>
 
-  From a physical perspective, sampling from the Boltzmann distribution is conceptually straightforward: just place the system in contact with an environment at the desired temperature and register the system's state at different times. But building these systems and engineering their energy functions is extremely challenging in practice. Instead, the challenge we undertake is to simulate them using computer algorithms. </p>
+  From a physical perspective, sampling from the Boltzmann distribution is conceptually straightforward: just place the system in contact with an environment at the desired temperature and register the system's state at different times. But building these systems and engineering their energy functions is extremely challenging in practice.
+  However, there are recent proposal to build probabilistic computer that employ stochastic magnetic tunneling junctions interaction with thermal noise to physically realize probabilistic bits (p-bits) <d-cite key="borders2019integer"></d-cite> or their FPGA-based simulations <d-cite key="sutton2020autonomous"></d-cite>.
+  Today, in practice one simulates such probabilistic machines using standard computing infrastructures, based on Turing machines with von Numann architecture, which consequently requires additional energy and time overheads compare to their direct physical realizations which could happen in near future <d-cite key="borders2019integer"></d-cite>.</p>
 
 
 
