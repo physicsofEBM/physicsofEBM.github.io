@@ -157,7 +157,7 @@ The state of an <d-math>n</d-math>-particle system can be described as <d-math> 
 <p> What probability distribution <d-math>P(x)</d-math> can be assigned to a state <d-math>x</d-math> with energy <d-math> E(x) </d-math>? If we do not have any information &mdash; and therefore no constraint &mdash; about a particular degree of freedom, we should remain maximally flexible in the choice of model while remaining consistent with the quantitites that are constrained. Therefore, it is reasonable to choose the distribution with maximum entropy<d-footnote>
     The entropy of a system is given by <d-math>S = \sum_x -P(x)\log P(x)</d-math>, where
     <d-math>P(x)</d-math> is the probability of a state <d-math>x</d-math>. If all states are equally likely, the entropy is maximal. If only one state <d-math>P(x) = 1</d-math> then the entropy is minimal.
-  </d-footnote> because the maximum entropy model reduces the amount of potentially biased or unsubstantiated prior information built into a model. This strategy is known as <em> Jaynes' maximum entropy principle </em> <d-cite key="jaynes1957information"></d-cite>. It states that in assigning a model on the basis of partial available information, the distribution with the largest possible entropy should be chosen. The resulting distribution <d-math> P(x) </d-math> is the solution to the optimization problem
+  </d-footnote> because the maximum entropy model reduces the amount of potentially biased or unsubstantiated (i.e. not supported by the data) prior information built into a model. This strategy is known as <em> Jaynes' maximum entropy principle </em> <d-cite key="jaynes1957information"></d-cite>. It states that in assigning a model on the basis of partial available information, the distribution with the largest possible entropy should be chosen. The resulting distribution <d-math> P(x) </d-math> is the solution to the optimization problem
 
  <d-math block>
   \begin{aligned}
@@ -170,7 +170,7 @@ giving <d-cite key="jaynes1957information"></d-cite>
  <d-math block>
   P(x) = \frac{1}{Z} \exp\left[ - E(x)/T \right],
  </d-math>
-where  <d-math>T </d-math> is a free parameter and <d-math> Z=\sum_x \exp[- E(x)/T] </d-math> is a normalization constant known as the <em>partition function</em>. This probability distribution first appeared in statistical physics and is now widely used in other fields. In its original physical interpretation, the Boltzmann distribution describes the probability of finding a system in a state <d-math>x</d-math> when the system is in thermal equilibrium with a heat bath at temperature <d-math> T </d-math><d-footnote>
+where  <d-math>T </d-math> is a free parameter and <d-math> Z=\sum_x \exp[- E(x)/T] </d-math> is a normalization constant known as the <em>partition function</em>. The free parameter <d-math>T </d-math> can be interpreted as a temperature if we set the Boltzmann constant <d-math>k_B = 1 </d-math>. This probability distribution first appeared in statistical physics and is now widely used in other fields. In its original physical interpretation, the Boltzmann distribution describes the probability of finding a system in a state <d-math>x</d-math> when the system is in thermal equilibrium with a heat bath at temperature <d-math> T </d-math><d-footnote>
   By definition, being at thermal equilibrium with a bath of temperature <d-math>T </d-math> means that the system is also at tempearature <d-math>T </d-math>. The temperature determines the average energy of a system. With large <d-math>T </d-math> the probability of high energy states increases, and so does the average energy.
 </d-footnote>
 . The Boltzmann distribution establishes a concrete relationship between energy and probability: low-energy states are the most likely to be observed. </p>
@@ -240,7 +240,7 @@ What tasks can be performed with this model? Consider the zero-temperature case.
 <d-cite key="le2008representational"></d-cite>.</p>
 
 <p>
-Simulating and training Boltzmann machines can be challenging. To facilitate progress, models can be studied where some connections are set to zero. In the most extreme case, all intralayer connections are removed, leaving present only connections between visible and hidden nodes. The resulting models are known as <em> Restricted Boltzmann machines </em> (RBMs). Conventionally, the state of an RBM is written in terms of visible <d-math>(v)</d-math> and hidden <d-math>(h)</d-math> nodes, <d-math>\sigma=(v, h)</d-math>, with its energy function given by
+Simulating and training Boltzmann machines can be challenging as we will discuss below. To facilitate progress, models can be studied where some connections are set to zero. In the most extreme case, all intralayer connections are removed, leaving present only connections between visible and hidden nodes. The resulting models are known as <em> Restricted Boltzmann machines </em> (RBMs). Conventionally, the state of an RBM is written in terms of visible <d-math>(v)</d-math> and hidden <d-math>(h)</d-math> nodes, <d-math>\sigma=(v, h)</d-math>, with its energy function given by
 <d-math block>
 E(v, h)= -\sum_i b_iv_i-\sum_j c_jh_j - \sum_{ij}w_{ij}v_ih_j.
 </d-math>
@@ -346,7 +346,7 @@ where <d-math>p = \exp(-(1/T) ~\Delta E_i) </d-math>. Physically, these jumps to
   <a class="marker" href="#section-3.1" id="section-3.1"><span>Gibbs Sampling</span></a>
   <h3 id="sampling">Gibbs Sampling</h3>
 <p>
-One possible improvement to this algorithm is to find models where the local update rule is even better at finding low-energy states. The issue with local updates is that the change in energy <d-math>\Delta E_i = -2\sigma_i(b_i+\sum_j w_{ij}\sigma_j)</d-math> for node <d-math>i</d-math> depends on the states of all other nodes. Therefore, each time a state <d-math>\sigma_i </d-math> is updated, the effect spreads out to all other nodes, changing their local update rules. But for an RBM, this is not exactly the case. The energy change in a visible node,  <d-math>\Delta E_i = -2v_i(b_i+\sum_j w_{ij}h_j)</d-math>, does not depend on any of the other visible nodes: when one of them is flipped, other visible nodes are unaffected. This makes the local update rule more effective because the entire collection of visible nodes can be treated as a single entity. A similar statement holds for updating hidden nodes when the visible ones are fixed. In fact, the lack of intralayer interactions in an RBM implies that the conditional probabilities <d-math>P(v|h)</d-math> and <d-math>P(h|v)</d-math> factorize: </p>
+One possible improvement to this algorithm is to find models where the local update rule is even better at finding low-energy states. The issue with local updates is that the change in energy <d-math>\Delta E_i = -2\sigma_i(b_i+\sum_j w_{ij}\sigma_j)</d-math> for node <d-math>i</d-math> depends on the states of all other nodes. Therefore, each time a state <d-math>\sigma_i </d-math> is updated, the effect spreads out to all other nodes, changing their local update rules. But for an RBM, this is not exactly the case. The energy change in a visible node,  <d-math>\Delta E(v_i) = -2v_i(b_i+\sum_j w_{ij}h_j)</d-math>, does not depend on any of the other visible nodes: when one of them is flipped, other visible nodes are unaffected. Accordingly, the energy change of a hidden node is given by <d-math>\Delta E(h_j) = -2h_j(c_j+\sum_i w_{ji}v_i)</d-math>. This makes the local update rule more effective because the entire collection of visible nodes can be treated as a single entity. A similar statement holds for updating hidden nodes when the visible ones are fixed. In fact, the lack of intralayer interactions in an RBM implies that the conditional probabilities <d-math>P(v|h)</d-math> and <d-math>P(h|v)</d-math> factorize: </p>
 
 
  <p>
@@ -362,14 +362,23 @@ Moreover, because of the independence between nodes in the same layer, the indiv
 <p>
 <d-math block>
   \begin{aligned}
-  P(h_j=1|v) &= \frac{1}{1+e^{-\Delta E_j/T}}, \\
-  P(v_i=1|h) &= \frac{1}{1+e^{-\Delta E_i/T}}.\\
+  P(h_j=1|v) &= \frac{1}{1+e^{\Delta E(h_j = 1)/(2T)}} = \sigma(c_j+\sum_i w_{ji}v_i), \\
+  P(v_i=1|h) &= \frac{1}{1+e^{\Delta E(v_i = 1)/(2T)}} = \sigma(b_i+\sum_j w_{ij}h_j).
   \end{aligned}
 </d-math>
 </p>
 <p>
-The remaining probabilities <d-math>P(h_j=-1|v)</d-math> and <d-math>P(v_i=-1|h)</d-math> follow from these equations. These properties of RBMs permit a new sampling strategy:
-
+where <d-math>\sigma(x) = 1/(1 + \exp(-x))</d-math> is the so-called sigmoid function. The remaining probabilities  
+The remaining probabilities 
+<p>
+<d-math block>
+  \begin{aligned}
+  P(h_j=-1|v) &= \sigma(-c_j - \sum_i w_{ji}v_i), \\
+  P(v_i=-1|h) &= \sigma(-b_i - \sum_j w_{ij}h_j).
+  \end{aligned}
+</d-math> 
+</p>
+follow directly from these equations. These properties of RBMs permit a new sampling strategy:
  <ol>
      <li>Fix the hidden nodes. Sample visible nodes from the conditional distribution <d-math>P(v|h) = \prod_i P(v_i|h)</d-math> by independently sampling the state of each node from its distribution <d-math>P(v_i|h)</d-math>.</li>
      <li>Fix the visible nodes according to the samples of the previous step. Sample hidden nodes from the conditional distribution <d-math>P(h|v) = \prod_i P(h_i|v)</d-math> by independently sampling the state of each node from its distribution <d-math>P(h_i|v)</d-math>.</li>
@@ -541,7 +550,9 @@ This rule is known as the <em>contrastive divergence</em> formula for training R
 
 <p>
 The role of contrastive divergence is to gradually shape the energy function of the model until all low-energy states of the model correspond to data points. Viewing the weights as generalized positions, we interpret the term <d-math>\Delta w_{ij}:=\langle v_i h_j \rangle_{\text{data}} - \langle v_i h_j \rangle_{\text{model}}</d-math> as a net force originating from two competing forces: a fixed external one due to data, and an internal force due to specific generalized positions of the system. When the forces are not balanced, this causes a shift in position in a direction that brings the forces closer to balance. Each shift in weight propagates across the entire model affecting all forces, so the strategy of the contrastive divergence training algorithm is to set a small learning rate <d-math> \eta</d-math> until all forces are balanced and the model is trained.
-
+</p>
+<p>
+  Training a Boltzmann machine is generally very hard due to inherently slow many-body physical effects that have to take place in both positive and negative phases. In the positive/learning phase, in which we clamp the visible nodes, we want to promote the useful correlations and within the free evolution or negative/unlearning phase we want to suppress the effects of spurious correlations that happen accidentally or via inductive bias in our model. The key intuition is that such local information of how a change in the weight between two neurons or nodes can manifestly influence the global energy function only becomes available at the equilibrium state. The problem is that the time-scale of such equilibration for both positive and negative phases are in the worst-case exponentially slow as these correspond to dynamics of a strongly-disordered and highly-frustrated complex system near or below a spin-glass phase transition. Moreover, we need to sample the activity of neurons many times in each run to collect sufficient statistics. Thus, in summary, within training the Boltzmann machine we are dealing with a hierarchy with three nested operations including (i) Running through all the data points and clamp visible nodes to the corresponding values, (ii) For each data point performing iterative learning/unlearning phases via incremental or decremental changes of local weights and then waiting or annealing the system into equilibrate state after each change which could be exponential slow, and (iii) After each equilibration step, we need to measure the system response by sampling variables to be able to adequately estimate the marginals.
 </p>
 
 <p>
@@ -562,13 +573,17 @@ The figure below collects the concepts we have covered thus far, showing how a t
 
   <div class="triplecolumn"></div>
 
+  <p>
+    <h4 id="training">A side note about systems with local degrees of freedom with more than 2 dimensions</h4>
+In Section \ref{architecture} we decided to restrict ourselves to systems with particles with 2 degrees of freedom. This simplified the mathematics in the previous section substantially and it also makes it easier to understand the physics behind these models. But nothing keeps us from increasing the local dimension of our model i.e. $x_i \in \{ -n, -(n-1), \dots, n-1 , n \}$ or even to go to continuous degrees of freedom, i.e. $x_i \in \mathbb{R}$. An example for a continuous variable EBM is the Gaussian-Bernoulli restricted Boltzmann machine \cite{zhang2019improved} that has continuous visible and binary hidden nodes. The energy function is adapted such that the probability distribution of the visible nodes becomes Gaussian. With the so-called spike and slap RBM \cite{courville2011spike} the sampling efficiency can be improved for these Gaussian models. An example for a RBM with a discrete local dimension $K>2$ has been used for collaborative filtering \cite{salakhutdinov2007restricted}. One can employ a binary RBM with one hidden layer but $K$ visible layers to represent $K$ local dimensions as a binary string, i.e. $v_i\in \{0,1\}^K$. The probabilities for each local dimension $k \in K$ of a given visible node can be calculated like for a standard binary RBM with $p(v_i^k | h)$.
+  </p>
 
 <a class="marker" href="#section-5" id="section-5"><span>Outlook: Future Research in Physics and Machine Learning</span></a>
 <h2 id="training">Outlook: Future Research in Physics and Machine Learning</h2>
 
   <p>
    Energy-based models are experiencing a resurgence of interest: they are stable to train, require few parameters, show high sample quality, generalization ability, and are amenable to compositionality <d-cite key="du2019implicit"></d-cite>. These are characteristics that other generative models like variational autoencoders or generative adversarial networks struggle with. Progress has also been made to improve the scaling of training <d-cite key="du2019implicit,nijkamp2019on"></d-cite>. With these developments, there is an indication that this family of models continues to be relevant in machine learning. However, energy-based models also need improvements on several frontiers.
-	Learning and inference over discrete data are still extremely challenging due to the combinatorial explosion of the state space, often referred to as the curse of dimensionality. In particular, training and probabilistic inference in energy-based models are still inefficient.
+	As we have discussed, learning and inference over discrete data are still extremely challenging due to the combinatorial explosion of the state space, often referred to as the curse of dimensionality. In particular, training and probabilistic inference in energy-based models are still inefficient.
 This is due to difficulty of calculating or sampling the partition function, a task that is #P hard from a computational complexity perspective, which originates from the NP-hardness of discrete optimization problems in the worst-case.
 There is a significant opportunity for developing physics-based models that could address these difficulties, in particular from the prosepctive of non-equilibrium statistical physics or quantum models that we discuss below.
   There are exciting emergent areas of research at the interfaces of machine learning, quantum computing, many-body physics, and optimization. This convergence provides a unique opportunity to make contributions at the mutual interfaces between these major disciplines.
@@ -584,7 +599,11 @@ There is a significant opportunity for developing physics-based models that coul
     <d-math block>
     \hat{H}=\sum_i \theta_i \hat{h}_i(x),
   </d-math>
-where hats are used to denote that these are operators. This change has profound implications: operators generally do not commute, i.e., it may hold that <d-math>[\hat{h}_i, \hat{h}_j]:= \hat{h}_i\hat{h}_j-\hat{h}_j\hat{h}_i\neq 0</d-math>. This property underlies concepts such as the uncertainty principle and the no-cloning theorem <d-cite key="nielsen2002quantum"></d-cite>. </p>
+where hats are used to denote that these are operators. This change has profound implications: operators generally do not commute, i.e., it may hold that <d-math>[\hat{h}_i, \hat{h}_j]:= \hat{h}_i\hat{h}_j-\hat{h}_j\hat{h}_i\neq 0</d-math>. This property underlies concepts such as the uncertainty principle and the no-cloning theorem <d-cite key="nielsen2002quantum"></d-cite>. 
+<d-footnote>
+  Non-commuting operators do not have a common eigenfunction or eigenstate. Since these eigenfunctions in quantum mechanics (for hermitian operators) are orthogonal, non-commutating operators lead to non-orthogonal eigenfunctions or eigenstates and therefore there is no measurement operator that can reliably distinguish these non-orthogonal states. This gives rise to the uncertainty principle. The no-cloning theorem follows a similar argument. Orthogonal states can be cloned, but non-orthogonal ones can't.
+</d-footnote>
+</p>
 
 <p> As a concrete example, we can describe a quantum Boltzmann machine, with a Hamiltonian
     <d-math block>
@@ -607,7 +626,9 @@ where hats are used to denote that these are operators. This change has profound
     \end{pmatrix}.
   </d-math>
 
-Notice that <d-math>\hat{\sigma}^{(x)}_i</d-math> does not commute with <d-math>\hat{\sigma}^{(z)}_i</d-math>. This is known as the <em>transverse-field Ising model</em>. A quantum Boltzmann machine is a system described by any such Hamiltonian involving at most pairwise interactions between particles. Theoretically understanding these models, deriving methods for efficiently training them, and implementing them in practice, are all tasks being currently pursued <d-cite key="amin2018quantum,khoshaman2018quantum,kieferova2017tomography"></d-cite>.</p>
+Notice that <d-math>\hat{\sigma}^{(x)}_i</d-math> does not commute with <d-math>\hat{\sigma}^{(z)}_i</d-math>. This is known as the <em>transverse-field Ising model</em>. A quantum Boltzmann machine is a system described by any such Hamiltonian involving at most pairwise interactions between particles. 
+In contrast to their classical analog, quantum generative models allow to model probability distributions via the eigenstates of a given Hamiltonian and do not necessarily require thermalisation. One of the simplest quantum generative models, the quantum Born machine <d-cite key="liu2018differentiable"></d-cite>, directly exploits the probabilistic nature of quantum states. It relies on pure states <d-math>\vert \psi \rangle = \sum_x c(x) \vert x \rangle</d-math> to model the probabilities <d-math>\vert c(x) \vert^2</d-math> of a certain bit string $x$ via projective measurements. The quantum Boltzmann machine is in the end a combination of the classical Boltzmann machine that models probabilities via a thermal distribution and a quantum Born machine that relies on the probabilistic nature of quantum states. Theoretically understanding these models, deriving methods for efficiently training them, and implementing them in practice, are all tasks being currently pursued <d-cite key="amin2018quantum,khoshaman2018quantum,kieferova2017tomography"></d-cite>. Furthermore, quantum technologies can also be used to train classical Boltzmann machines. In this case the quantum hardware, i.e. a quantum annealer, is used to sample directly from the Gibbs distribution without doing Markov chain Monte Carlo <d-cite key="benedetti2017quantum"></d-cite>. Recent works also show how complex valued RBMs can be mapped on current gate based quantum devices as Unitary-coupled RBMs <d-cite key="hsieh2021unitary"></d-cite>.
+</p>
 
 
   <p>
@@ -621,8 +642,8 @@ Remarkably, physical Complexity of the low-energy states of such generalized spi
   <p>
   A general class of probabilistic physics-inspired approaches to sample the solution space of such problems is based on Markov Chain Monte Carlo techniques, for example the Metropolis-Hastings algorithm,
   simulated annealing <d-cite key="Kirkpatrick671"></d-cite>, and parallel tempering <d-cite key="PTreview"></d-cite>.
- More advanced methods combine probabilistic cluster-update strategies over a backbone algorithm from the Markov Chain Monte Carlo family <d-cite key="Swendsen_Wang87,Wolf89, Houdayer2001, HF04,Selby14,Hen_2017"></d-cite>.
-  However, these approaches either break down for frustrated spin-glass systems <d-cite key="Wolf89"></d-cite>, percolate for dimensions larger than two <d-cite key="Houdayer2001"></d-cite>, or assume random tree-like subgraphs <d-cite key="HF04,Selby14,Hen_2017"></d-cite>
+ More advanced methods combine probabilistic cluster-update strategies over a backbone algorithm from the Markov Chain Monte Carlo family <d-cite key="Hen2017,SwendsenWang87,Wolf89,houdayer2001cluster,hamze2012fields,Selby14"></d-cite>.
+  However, these approaches either break down for frustrated spin-glass systems <d-cite key="Wolf89"></d-cite>, percolate for dimensions larger than two <d-cite key="houdayer2001cluster"></d-cite>, or assume random tree-like subgraphs <d-cite key="hamze2012fields,Selby14,Hen2017"></d-cite>
   that are not necessarily related to the actual low-energy excitation “droplets” <d-footnote>A droplet is a local low energy cluster of spins where the distribution is disconnected from the rest of the system.</d-footnote> of the underlying spin-glass problem.
 </p>
 
