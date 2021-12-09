@@ -448,7 +448,7 @@ When forces are unbalanced, for instance if the pull of gravity outweighs the re
 </p>
 <p>
   <d-math block>
-    \theta \rightarrow \theta + \eta[F_d+F(\theta)] = \theta + \eta(\langle f(x) \rangle_{\text{data}}-\langle f(x) \rangle_{\text{model}}),
+    \theta \leftarrow \theta + \eta[F_d+F(\theta)] = \theta + \eta(\langle f(x) \rangle_{\text{data}}-\langle f(x) \rangle_{\text{model}}),
   </d-math>
   </p>
   <p>
@@ -508,7 +508,7 @@ By appropriately selecting the value of <d-math>\epsilon</d-math>, this increase
   </p>
   <p>
   <d-math block>
-    w_{ij}\rightarrow w_{ij}+\eta(\langle \sigma_i \sigma_j \rangle_{\text{data}} - \epsilon \langle \sigma_i \sigma_j \rangle_{\text{model}}),
+    w_{ij}\leftarrow w_{ij}+\eta(\langle \sigma_i \sigma_j \rangle_{\text{data}} - \epsilon \langle \sigma_i \sigma_j \rangle_{\text{model}}),
 </d-math>
 </p>
 <p>
@@ -516,7 +516,7 @@ By appropriately selecting the value of <d-math>\epsilon</d-math>, this increase
   </p>
   <p>
    <d-math block>
-    w_{ij}\rightarrow w_{ij}+\eta(\langle v_i h_j \rangle_{\text{data}} - \langle v_i h_j \rangle_{\text{model}}).
+    w_{ij}\leftarrow w_{ij}+\eta(\langle v_i h_j \rangle_{\text{data}} - \langle v_i h_j \rangle_{\text{model}}).
   </d-math>
   </p>
   <p>
